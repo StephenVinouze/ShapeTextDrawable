@@ -1,5 +1,5 @@
 # ShapeTextDrawable
-When it comes to draw basic shapes such as squares or circles, we encounter many approaches to achieve this goal. Using `Pain` is one of the best approach and yet it is still easier to use an **XML** shape or even an image. Now if we need to have some text inside our shape, then usually we surrender to the easiest and less time consuming solution. This library intends to avoid this "easy" choice by providing a flexible solution to efficiently draw your shapes and even display some text inside them.
+When it comes to draw basic shapes such as squares or circles, we encounter many approaches to achieve this goal. Using `Paint` is one of the best approach and yet it is still easier to use an **XML** shape or even an image. Now if we need to have some text inside our shape, then we usually surrender to the easiest and less time consuming solution. This library intends to avoid this "easy" choice by providing a flexible solution to efficiently draw your shapes and display efficiently some text inside them.
 
 Square shape | Round Square shape | Round shape
 ---- | ---- | ----
