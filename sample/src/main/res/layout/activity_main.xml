@@ -42,18 +42,3 @@
     </android.support.v7.widget.CardView>
 
 </LinearLayout>
-
-<!--    <com.github.stephenvinouze.shapetextview.ShapeView
-        android:id="@+id/shape_view"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        app:sv_borderColor="@color/colorPrimary"
-        app:sv_borderThickness="1dp"
-        app:sv_color="@color/colorAccent"
-        app:sv_radius="5dp"
-        app:sv_shape="square"
-        app:sv_text="i"
-        app:sv_textBold="true"
-        app:sv_textSize="30sp"/>-->
