@@ -1,9 +1,9 @@
 # ShapeTextDrawable
 A Kotlin lightweight library to easily draw shapes that may contain text within them
 
-![alt tag](art/square_framed.png)
-![alt tag](art/round_square_framed.png)
-![alt tag](art/round_framed.png)
+![alt tag](art/square.png)
+![alt tag](art/round_square.png)
+![alt tag](art/round.png)
 
 ## Download
 
