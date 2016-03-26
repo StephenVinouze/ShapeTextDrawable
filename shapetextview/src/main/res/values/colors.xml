@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="square">#3eb5fd</color>
+    <color name="round_square">#fcb840</color>
+    <color name="round">#f55c5c</color>
+</resources>

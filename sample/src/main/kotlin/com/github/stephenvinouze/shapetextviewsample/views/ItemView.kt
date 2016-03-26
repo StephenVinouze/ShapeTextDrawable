@@ -2,12 +2,12 @@ package com.github.stephenvinouze.shapetextviewsample.views
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import butterknife.bindView
 import com.github.stephenvinouze.shapetextview.ShapeForm
-import com.github.stephenvinouze.shapetextview.ShapeView
-import com.github.stephenvinouze.shapetextview.TextDrawable
+import com.github.stephenvinouze.shapetextview.ShapeTextDrawable
 import com.github.stephenvinouze.shapetextviewsample.R
 
 /**
@@ -15,7 +15,7 @@ import com.github.stephenvinouze.shapetextviewsample.R
  */
 class ItemView : RelativeLayout {
 
-    val shapeView: ShapeView by bindView(R.id.item_shape_view)
+    val shapeView: ImageView by bindView(R.id.item_shape_view)
     val titleView: TextView by bindView(R.id.item_title_view)
 
     constructor(context: Context) : super(context) {
@@ -30,13 +30,14 @@ class ItemView : RelativeLayout {
         inflate(context, R.layout.item_view, this)
     }
 
-    fun bind(shapeForm: ShapeForm, title: String, color: Int, radius: Float) {
+    fun bind(shapeForm: ShapeForm, title: String, color: Int, radius: Float = 0f) {
+        val drawable = ShapeTextDrawable(shapeForm,
+                color = color,
+                text = title.toUpperCase().substring(IntRange(0, 0)),
+                radius = radius)
+
+        shapeView.setImageDrawable(drawable)
         titleView.text = title
-        shapeView.setTextDrawable(TextDrawable.Builder()
-                .color(color)
-                .text(title.toUpperCase().substring(IntRange(0, 0)))
-                .radius(radius)
-                .build(shapeForm))
     }
 
 }

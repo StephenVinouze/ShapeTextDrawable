@@ -1,32 +1,54 @@
 package com.github.stephenvinouze.shapetextviewsample.activities
 
-import android.graphics.Color
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.Toast
+import android.view.Menu
+import android.view.MenuItem
 import butterknife.bindView
 import com.github.stephenvinouze.shapetextview.ShapeForm
-import com.github.stephenvinouze.shapetextview.ShapeView
-import com.github.stephenvinouze.shapetextview.TextDrawable
 import com.github.stephenvinouze.shapetextviewsample.R
 import com.github.stephenvinouze.shapetextviewsample.views.ItemView
 
 class MainActivity : AppCompatActivity() {
 
     val squareView: ItemView by bindView(R.id.square_item_view)
-    val roundView: ItemView by bindView(R.id.round_item_view)
     val roundSquareView: ItemView by bindView(R.id.round_square_item_view)
+    val roundView: ItemView by bindView(R.id.round_item_view)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        squareView.bind(ShapeForm.SQUARE, "test", Color.BLUE, 0.toFloat())
-        roundView.bind(ShapeForm.ROUND ,"test2", Color.RED, 0.toFloat())
-        roundSquareView.bind(ShapeForm.SQUARE, "test3", Color.GREEN, 10.toFloat())
+        updateShapes(ShapeForm.ROUND)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.action_square -> updateShapes(ShapeForm.SQUARE)
+            R.id.action_round_square -> updateShapes(ShapeForm.SQUARE, 10f)
+            R.id.action_round -> updateShapes(ShapeForm.ROUND)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun titleFromShape(shapeForm: ShapeForm, hasCorner: Boolean = false) : String {
+        when (shapeForm) {
+            ShapeForm.SQUARE -> return  if (hasCorner) "Corner applied to square" else "Square drawable"
+            ShapeForm.ROUND -> return "Round drawable"
+        }
+    }
+
+    fun updateShapes(shapeForm: ShapeForm, radius: Float = 0f) {
+        val title = titleFromShape(shapeForm, radius > 0)
+
+        squareView.bind(shapeForm, title, ContextCompat.getColor(this, R.color.square), radius)
+        roundSquareView.bind(shapeForm, title, ContextCompat.getColor(this, R.color.round_square), radius)
+        roundView.bind(shapeForm, title, ContextCompat.getColor(this, R.color.round), radius)
     }
 }
