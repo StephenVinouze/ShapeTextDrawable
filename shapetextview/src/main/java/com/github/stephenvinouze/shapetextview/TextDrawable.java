@@ -23,8 +23,6 @@ public class TextDrawable extends ShapeDrawable {
     private final Paint textPaint;
     private final Paint borderPaint;
     private final String text;
-    private final int width;
-    private final int height;
     private final int fontSize;
     private final int borderThickness;
     private final float radius;
@@ -34,12 +32,10 @@ public class TextDrawable extends ShapeDrawable {
 
         // shape properties
         shape = builder.shape;
-        width = builder.width;
-        height = builder.height;
         radius = builder.radius;
 
         // text and color
-        text = builder.toUpperCase ? builder.text.toUpperCase() : builder.text;
+        text = builder.text;
         fontSize = builder.fontSize;
 
         // drawable paint color
@@ -78,12 +74,10 @@ public class TextDrawable extends ShapeDrawable {
         canvas.translate(r.left, r.top);
 
         // draw text
-        int width = this.width < 0 ? r.width() : this.width;
-        int height = this.height < 0 ? r.height() : this.height;
-        int fontSize = this.fontSize < 0 ? (Math.min(width, height) / 2) : this.fontSize;
+        int fontSize = this.fontSize < 0 ? (Math.min(r.width(), r.height()) / 2) : this.fontSize;
         textPaint.setTextSize(fontSize);
 
-        canvas.drawText(text, width / 2, height / 2 - ((textPaint.descent() + textPaint.ascent()) / 2), textPaint);
+        canvas.drawText(text, r.width() / 2, r.height() / 2 - ((textPaint.descent() + textPaint.ascent()) / 2), textPaint);
         canvas.restoreToCount(count);
     }
 
@@ -119,12 +113,12 @@ public class TextDrawable extends ShapeDrawable {
 
     @Override
     public int getIntrinsicWidth() {
-        return width;
+        return -1;
     }
 
     @Override
     public int getIntrinsicHeight() {
-        return height;
+        return -1;
     }
 
     public static Builder builder() {
@@ -136,26 +130,13 @@ public class TextDrawable extends ShapeDrawable {
         private String text = "";
         private int color = Color.GRAY;
         private int textColor = Color.WHITE;
-        private int width = -1;
-        private int height = -1;
         private int borderColor = Color.TRANSPARENT;
         private int borderThickness = 0;
         private Typeface font = Typeface.create("sans-serif-light", Typeface.NORMAL);
         private int fontSize = -1;
         private boolean isBold = false;
-        private boolean toUpperCase = false;
         private float radius = 0;
         private Shape shape;
-
-        public Builder width(int width) {
-            this.width = width;
-            return this;
-        }
-
-        public Builder height(int height) {
-            this.height = height;
-            return this;
-        }
 
         public Builder color(int color) {
             this.color = color;
@@ -197,8 +178,8 @@ public class TextDrawable extends ShapeDrawable {
             return this;
         }
 
-        public Builder toUpperCase() {
-            this.toUpperCase = true;
+        public Builder radius(float radius) {
+            this.radius = radius;
             return this;
         }
 

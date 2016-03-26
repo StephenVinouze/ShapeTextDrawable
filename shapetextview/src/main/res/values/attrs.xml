@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ShapeView">
+        <attr name="sv_radius" format="dimension" />
+        <attr name="sv_color" format="color" />
+        <attr name="sv_borderColor" format="color" />
+        <attr name="sv_borderThickness" format="dimension" />
+        <attr name="sv_text" format="string" />
+        <attr name="sv_textBold" format="boolean" />
+        <attr name="sv_textColor" format="color" />
+        <attr name="sv_textFont" format="string" />
+        <attr name="sv_textSize" format="dimension" />
+        <attr name="sv_shape" format="integer" >
+            <enum name="square" value="0"/>
+            <enum name="round" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>
