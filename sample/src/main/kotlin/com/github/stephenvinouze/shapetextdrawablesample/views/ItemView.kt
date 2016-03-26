@@ -1,4 +1,4 @@
-package com.github.stephenvinouze.shapetextviewsample.views
+package com.github.stephenvinouze.shapetextdrawablesample.views
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,9 +6,9 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import butterknife.bindView
-import com.github.stephenvinouze.shapetextview.ShapeForm
-import com.github.stephenvinouze.shapetextview.ShapeTextDrawable
-import com.github.stephenvinouze.shapetextviewsample.R
+import com.github.stephenvinouze.shapetextdrawable.ShapeForm
+import com.github.stephenvinouze.shapetextdrawable.ShapeTextDrawable
+import com.github.stephenvinouze.shapetextdrawablesample.R
 
 /**
  * Created by stephenvinouze on 26/03/16.

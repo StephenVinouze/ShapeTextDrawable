@@ -13,7 +13,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.github.stephenvinouze.shapetextviewsample"
+        applicationId "com.github.stephenvinouze.shapetextdrawablesample"
         minSdkVersion 7
         targetSdkVersion 23
         versionCode 1
@@ -34,7 +34,7 @@ ext.android_support_version = '23.2.1'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':shapetextview')
+    compile project(':shapetextdrawable')
     testCompile 'junit:junit:4.12'
     compile "com.android.support:appcompat-v7:$android_support_version"
     compile "com.android.support:cardview-v7:$android_support_version"

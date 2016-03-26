@@ -1,4 +1,4 @@
-package com.github.stephenvinouze.shapetextview
+package com.github.stephenvinouze.shapetextdrawable
 
 /**
  * Created by stephenvinouze on 26/03/16.

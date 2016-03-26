@@ -8,14 +8,14 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_round"
-        android:title="Round shapes"
+        android:id="@+id/action_round_square"
+        android:title="Round square shapes"
         android:orderInCategory="101"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_round_square"
-        android:title="Round square shapes"
+        android:id="@+id/action_round"
+        android:title="Round shapes"
         android:orderInCategory="102"
         app:showAsAction="never" />
 

@@ -1,1 +1,1 @@
-include ':sample', ':shapetextview'
+include ':sample', ':shapetextdrawable'

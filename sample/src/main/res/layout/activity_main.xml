@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
 
-        <com.github.stephenvinouze.shapetextviewsample.views.ItemView
+        <com.github.stephenvinouze.shapetextdrawablesample.views.ItemView
             android:id="@+id/square_item_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
 
-        <com.github.stephenvinouze.shapetextviewsample.views.ItemView
+        <com.github.stephenvinouze.shapetextdrawablesample.views.ItemView
             android:id="@+id/round_square_item_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
 
-        <com.github.stephenvinouze.shapetextviewsample.views.ItemView
+        <com.github.stephenvinouze.shapetextdrawablesample.views.ItemView
             android:id="@+id/round_item_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

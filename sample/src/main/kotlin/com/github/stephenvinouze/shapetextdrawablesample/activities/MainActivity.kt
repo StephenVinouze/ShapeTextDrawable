@@ -1,4 +1,4 @@
-package com.github.stephenvinouze.shapetextviewsample.activities
+package com.github.stephenvinouze.shapetextdrawablesample.activities
 
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import butterknife.bindView
-import com.github.stephenvinouze.shapetextview.ShapeForm
-import com.github.stephenvinouze.shapetextviewsample.R
-import com.github.stephenvinouze.shapetextviewsample.views.ItemView
+import com.github.stephenvinouze.shapetextdrawable.ShapeForm
+import com.github.stephenvinouze.shapetextdrawablesample.R
+import com.github.stephenvinouze.shapetextdrawablesample.views.ItemView
 
 class MainActivity : AppCompatActivity() {
 

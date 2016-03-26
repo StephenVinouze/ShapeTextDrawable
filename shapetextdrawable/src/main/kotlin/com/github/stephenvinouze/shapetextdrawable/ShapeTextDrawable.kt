@@ -1,4 +1,4 @@
-package com.github.stephenvinouze.shapetextview
+package com.github.stephenvinouze.shapetextdrawable
 
 import android.graphics.*
 import android.graphics.drawable.ShapeDrawable
