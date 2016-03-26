@@ -12,42 +12,44 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.graphics.drawable.shapes.RectShape;
 import android.graphics.drawable.shapes.RoundRectShape;
+import android.graphics.drawable.shapes.Shape;
 
 /**
  * Created by stephenvinouze on 26/03/16.
  */
-public class ShapeTextView extends ShapeDrawable {
+public class TextDrawable extends ShapeDrawable {
 
+    private final Shape shape;
     private final Paint textPaint;
     private final Paint borderPaint;
-    private static final float SHADE_FACTOR = 0.9f;
     private final String text;
-    private final int color;
-    private final RectShape shape;
-    private final int height;
     private final int width;
+    private final int height;
     private final int fontSize;
-    private final float radius;
     private final int borderThickness;
+    private final float radius;
 
-    private ShapeTextView(Builder builder) {
+    private TextDrawable(Builder builder) {
         super(builder.shape);
 
         // shape properties
         shape = builder.shape;
-        height = builder.height;
         width = builder.width;
+        height = builder.height;
         radius = builder.radius;
 
         // text and color
         text = builder.toUpperCase ? builder.text.toUpperCase() : builder.text;
-        color = builder.color;
+        fontSize = builder.fontSize;
+
+        // drawable paint color
+        int shapeColor = builder.color;
+        Paint paint = getPaint();
+        paint.setColor(shapeColor);
 
         // text paint settings
-        fontSize = builder.fontSize;
-        textPaint = new Paint();
+        textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setColor(builder.textColor);
-        textPaint.setAntiAlias(true);
         textPaint.setFakeBoldText(builder.isBold);
         textPaint.setStyle(Paint.Style.FILL);
         textPaint.setTypeface(builder.font);
@@ -56,20 +58,10 @@ public class ShapeTextView extends ShapeDrawable {
 
         // border paint settings
         borderThickness = builder.borderThickness;
-        borderPaint = new Paint();
-        borderPaint.setColor(getDarkerShade(color));
+        borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        borderPaint.setColor(builder.borderColor);
         borderPaint.setStyle(Paint.Style.STROKE);
         borderPaint.setStrokeWidth(borderThickness);
-
-        // drawable paint color
-        Paint paint = getPaint();
-        paint.setColor(color);
-    }
-
-    private int getDarkerShade(int color) {
-        return Color.rgb((int) (SHADE_FACTOR * Color.red(color)),
-                (int) (SHADE_FACTOR * Color.green(color)),
-                (int) (SHADE_FACTOR * Color.blue(color)));
     }
 
     @Override
@@ -90,8 +82,8 @@ public class ShapeTextView extends ShapeDrawable {
         int height = this.height < 0 ? r.height() : this.height;
         int fontSize = this.fontSize < 0 ? (Math.min(width, height) / 2) : this.fontSize;
         textPaint.setTextSize(fontSize);
-        canvas.drawText(text, width / 2, height / 2 - ((textPaint.descent() + textPaint.ascent()) / 2), textPaint);
 
+        canvas.drawText(text, width / 2, height / 2 - ((textPaint.descent() + textPaint.ascent()) / 2), textPaint);
         canvas.restoreToCount(count);
     }
 
@@ -146,13 +138,14 @@ public class ShapeTextView extends ShapeDrawable {
         private int textColor = Color.WHITE;
         private int width = -1;
         private int height = -1;
+        private int borderColor = Color.TRANSPARENT;
         private int borderThickness = 0;
         private Typeface font = Typeface.create("sans-serif-light", Typeface.NORMAL);
-        private RectShape shape = new RectShape();
         private int fontSize = -1;
         private boolean isBold = false;
         private boolean toUpperCase = false;
-        public float radius = 0;
+        private float radius = 0;
+        private Shape shape;
 
         public Builder width(int width) {
             this.width = width;
@@ -164,8 +157,23 @@ public class ShapeTextView extends ShapeDrawable {
             return this;
         }
 
+        public Builder color(int color) {
+            this.color = color;
+            return this;
+        }
+
+        public Builder text(String text) {
+            this.text = text;
+            return this;
+        }
+
         public Builder textColor(int color) {
             this.textColor = color;
+            return this;
+        }
+
+        public Builder borderColor(int color) {
+            this.borderColor = color;
             return this;
         }
 
@@ -194,42 +202,24 @@ public class ShapeTextView extends ShapeDrawable {
             return this;
         }
 
-        public Builder rect() {
-            this.shape = new RectShape();
-            return this;
-        }
+        public TextDrawable build(ShapeForm shapeForm) {
+            switch (shapeForm) {
+                case ROUND:
+                    this.shape = new OvalShape();
+                    break;
 
-        public Builder round() {
-            this.shape = new OvalShape();
-            return this;
-        }
+                case SQUARE:
+                    if (radius > 0) {
+                        float[] radii = {radius, radius, radius, radius, radius, radius, radius, radius};
+                        this.shape = new RoundRectShape(radii, null, null);
+                    }
+                    else {
+                        this.shape = new RectShape();
+                    }
+                    break;
+            }
 
-        public Builder roundRect(int radius) {
-            this.radius = radius;
-            float[] radii = {radius, radius, radius, radius, radius, radius, radius, radius};
-            this.shape = new RoundRectShape(radii, null, null);
-            return this;
-        }
-
-        public ShapeTextView buildRect(String text, int color) {
-            rect();
-            return build(text, color);
-        }
-
-        public ShapeTextView buildRoundRect(String text, int color, int radius) {
-            roundRect(radius);
-            return build(text, color);
-        }
-
-        public ShapeTextView buildRound(String text, int color) {
-            round();
-            return build(text, color);
-        }
-
-        public ShapeTextView build(String text, int color) {
-            this.color = color;
-            this.text = text;
-            return new ShapeTextView(this);
+            return new TextDrawable(this);
         }
     }
 }

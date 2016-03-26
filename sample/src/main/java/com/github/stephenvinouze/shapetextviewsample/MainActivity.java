@@ -1,11 +1,12 @@
 package com.github.stephenvinouze.shapetextviewsample;
 
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
-import com.github.stephenvinouze.shapetextview.ShapeTextView;
+import com.github.stephenvinouze.shapetextview.ShapeForm;
+import com.github.stephenvinouze.shapetextview.TextDrawable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,6 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.image);
         if (imageView != null)
-            imageView.setImageDrawable(ShapeTextView.builder().buildRound("I", Color.RED));
+            imageView.setImageDrawable(TextDrawable.builder().color(Color.RED).borderColor(Color.BLACK).borderThickness(2).text("i").build(ShapeForm.ROUND));
     }
 }
