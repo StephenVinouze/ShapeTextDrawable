@@ -44,7 +44,6 @@ class ShapeView : View {
             } else if (attr == R.styleable.ShapeView_sv_shape) {
                 when (a.getInt(attr, SHAPE_SQUARE)) {
                     SHAPE_SQUARE -> setTextDrawable(drawableBuilder.build(ShapeForm.SQUARE))
-
                     SHAPE_ROUND -> setTextDrawable(drawableBuilder.build(ShapeForm.ROUND))
                 }
             }
@@ -65,10 +64,5 @@ class ShapeView : View {
         private val SHAPE_SQUARE = 0
         private val SHAPE_ROUND = 1
     }
-
-    /*public void setBitmap(Bitmap bitmap) {
-        this.mBitmap = bitmap;
-        invalidate();
-    }*/
 
 }

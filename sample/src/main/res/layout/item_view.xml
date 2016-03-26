@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.github.stephenvinouze.shapetextview.ShapeView
+        android:id="@+id/item_shape_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/item_title_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/item_shape_view"
+        android:layout_toRightOf="@id/item_shape_view"/>
+
+</merge>
