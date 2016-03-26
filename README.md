@@ -3,7 +3,7 @@ A Kotlin lightweight library to easily draw shapes that may contain text within 
 
 Date Picker | Time Picker
 ---- | ----
-![Date Picker](images/square.png) | ![Time Picker](images/round.png)
+![Date Picker](art/square.png) | ![Time Picker](art/round.png)
 
 ## Download
 
