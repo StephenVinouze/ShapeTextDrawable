@@ -1,9 +1,9 @@
 # ShapeTextDrawable
 A Kotlin lightweight library to easily draw shapes that may contain text within them
 
-![alt tag](art/square.png)
-![alt tag](art/round_square.png)
-![alt tag](art/round.png)
+Date Picker | Time Picker
+---- | ----
+![Date Picker](images/square.png) | ![Time Picker](images/round.png)
 
 ## Download
 
