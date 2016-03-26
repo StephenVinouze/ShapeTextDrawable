@@ -3,7 +3,7 @@ A Kotlin lightweight library to easily draw shapes that may contain text within 
 
 Square shape | Round Square shape | Round shape
 ---- | ---- | ----
-![Square shape](art/square.png) | ![Round square shape](art/round.png) | ![Round shape](art/round.png)
+![Square shape](art/square.png) | ![Round square shape](art/round_square.png) | ![Round shape](art/round.png)
 
 ## Download
 
