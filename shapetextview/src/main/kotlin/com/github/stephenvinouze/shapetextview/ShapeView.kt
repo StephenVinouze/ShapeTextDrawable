@@ -1,7 +1,6 @@
 package com.github.stephenvinouze.shapetextview
 
 import android.content.Context
-import android.content.res.TypedArray
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Build
@@ -54,7 +53,7 @@ class ShapeView : View {
         a.recycle()
     }
 
-    @SuppressWarnings("deprecation")
+    @Suppress("deprecation")
     fun setTextDrawable(textDrawable: TextDrawable) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             background = textDrawable
