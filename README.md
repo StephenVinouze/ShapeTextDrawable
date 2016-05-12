@@ -1,4 +1,10 @@
 # ShapeTextDrawable
+[ ![Download](https://api.bintray.com/packages/stephenvinouze/maven/ShapeTextDrawable/images/download.svg) ](https://bintray.com/stephenvinouze/maven/ShapeTextDrawable/_latestVersion)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ShapeTextDrawable-orange.svg?style=true)](http://android-arsenal.com/details/1/3577)
+[![API](https://img.shields.io/badge/API-1%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=1)
+[![GitHub
+license](http://img.shields.io/badge/license-APACHE2-blue.svg)](https://github.com/StephenVinouze/ShapeTextDrawable/blob/master/LICENSE)
+
 When it comes to draw basic shapes such as squares or circles, we encounter many approaches to achieve this goal. Using `Paint` is one of the best approach and yet it is still easier to use an **XML** shape or even an image. Now if we need to have some text inside our shape, then we usually surrender to the easiest and less time consuming solution. This library intends to avoid this "easy" choice by providing a flexible solution to efficiently draw your shapes and display efficiently some text inside them.
 
 Square shape | Round Square shape | Round shape
